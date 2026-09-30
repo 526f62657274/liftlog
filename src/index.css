@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #09090b;
+  color: #fafafa;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* 16px minimum stops iOS zooming the page when a field is focused. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-4 text-base font-semibold transition select-none active:scale-[0.97];
+  }
+  .btn-primary {
+    @apply bg-lime-400 text-zinc-950;
+  }
+  .btn-ghost {
+    @apply bg-zinc-800 text-zinc-100;
+  }
+  .btn-danger {
+    @apply bg-red-500/15 text-red-300;
+  }
+  .card {
+    @apply rounded-2xl border border-zinc-800 bg-zinc-900;
+  }
+  .field {
+    @apply min-h-12 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 text-zinc-50 placeholder:text-zinc-500 focus:border-lime-400 focus:outline-none;
+  }
+  .label {
+    @apply text-xs font-semibold tracking-wide text-zinc-400 uppercase;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    transform: translateY(-16px) scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.pop-in {
+  animation: pop-in 0.25s ease-out;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+.sheet-up {
+  animation: sheet-up 0.2s ease-out;
+}
